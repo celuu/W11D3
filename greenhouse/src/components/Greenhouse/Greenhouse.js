@@ -10,17 +10,14 @@ import { useContext, useState } from 'react';
 function Greenhouse() {
 
   const {themeName, setThemeName} = useTheme()
-  const clickHandler = e => {
-    e.preventDefault();
-    // if (className="on") {
-    //   className = "off"
-    // } else { className = "on" }
-    if (themeName === nightImage) {
-      setThemeName(dayImage)
-    } else {
+
+  if (themeName === "day") {
+    setThemeName(dayImage);
+  } else if(themeName === "night") {
       setThemeName(nightImage)
-    }
   }
+  
+
   return (
    
     <section>
@@ -28,7 +25,6 @@ function Greenhouse() {
       <img className='greenhouse-img'
         src={themeName}
         alt='greenhouse'
-        onClick={clickHandler}
         />
 
       <LightSwitch />
